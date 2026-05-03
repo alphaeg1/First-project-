@@ -3,229 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>منصة دكتور أحمد تمام | للأحياء</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/a076d15396.js" crossorigin="anonymous"></script>
-    <style>
-        :root {
-            --bg-dark: #0f172a;
-            --neon-blue: #00d2ff;
-            --neon-purple: #9d50bb;
-            --glass: rgba(255, 255, 255, 0.05);
-            --text-color: #ffffff;
-        }
-
-        [data-theme="light"] {
-            --bg-dark: #f8fafc;
-            --text-color: #1e293b;
-            --glass: rgba(0, 0, 0, 0.05);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Cairo', sans-serif;
-        }
-
-        body {
-            background-color: var(--bg-dark);
-            color: var(--text-color);
-            transition: 0.3s;
-            overflow-x: hidden;
-        }
-
-        /* Neon Background Decorations */
-        .neon-sphere {
-            position: fixed;
-            width: 300px;
-            height: 300px;
-            background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
-            filter: blur(100px);
-            border-radius: 50%;
-            z-index: -1;
-            opacity: 0.4;
-        }
-
-        .top-right { top: -50px; right: -50px; }
-        .bottom-left { bottom: -50px; left: -50px; }
-
-        .container {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-
-        header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        header h1 {
-            font-size: 3rem;
-            font-weight: 900;
-            background: linear-gradient(to left, var(--neon-blue), var(--neon-purple));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 10px;
-        }
-
-        header p {
-            font-size: 1.2rem;
-            opacity: 0.8;
-        }
-
-        .selection-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            width: 100%;
-            max-width: 1100px;
-        }
-
-        .grade-card {
-            background: var(--glass);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 40px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .grade-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--neon-blue);
-            box-shadow: 0 10px 30px rgba(0, 210, 255, 0.2);
-        }
-
-        .grade-card i {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            display: block;
-            color: var(--neon-blue);
-        }
-
-        .grade-card h2 {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-        }
-
-        .btn-enter {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 10px 25px;
-            border-radius: 30px;
-            background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        /* Floating Widgets */
-        .controls {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            display: flex;
-            gap: 15px;
-        }
-
-        .btn-widget {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            border: none;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            background: var(--glass);
-            color: var(--text-color);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .whatsapp-btn {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: #25d366;
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            text-decoration: none;
-            z-index: 1000;
-        }
-
-        @media (max-width: 768px) {
-            header h1 { font-size: 2.2rem; }
-        }
-    </style>
+    <title>Alpha Elite Web Design</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body data-theme="dark">
+<body>
+    <div class="background-overlay"></div>
+    
+    <header>
+        <nav>
+            <div class="logo">ALPHA</div>
+            <ul>
+                <li>الرئيسية</li>
+                <li>خدماتنا</li>
+                <li>تواصل معنا</li>
+            </ul>
+        </nav>
+    </header>
 
-    <div class="neon-sphere top-right"></div>
-    <div class="neon-sphere bottom-left"></div>
-
-    <div class="controls">
-        <button class="btn-widget" onclick="toggleTheme()">🌓</button>
-        <button class="btn-widget" title="تسجيل الدخول">👤</button>
-    </div>
-
-    <a href="https://wa.me/201XXXXXXXXX" class="whatsapp-btn" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
-    <div class="container">
-        <header>
-            <h1>منصة دكتور أحمد تمام</h1>
-            <p>مستقبلك في الأحياء يبدأ من هنا.. اختر صفك الدراسي</p>
-        </header>
-
-        <div class="selection-grid">
-            <div class="grade-card" onclick="location.href='grade1.html'">
-                <i class="fas fa-microscope"></i>
-                <h2>الصف الأول الثانوي</h2>
-                <p>رحلة اكتشاف الخلية والحياة</p>
-                <span class="btn-enter">دخول المنصة</span>
-            </div>
-
-            <div class="grade-card" onclick="location.href='grade2.html'">
-                <i class="fas fa-dna"></i>
-                <h2>الصف الثاني الثانوي</h2>
-                <p>تعمق في أجهزة الجسم والوظائف</p>
-                <span class="btn-enter">دخول المنصة</span>
-            </div>
-
-            <div class="grade-card" onclick="location.href='grade3.html'">
-                <i class="fas fa-leaf"></i>
-                <h2>الصف الثالث الثانوي</h2>
-                <p>طريقك نحو القمة في الثانوية العامة</p>
-                <span class="btn-enter">دخول المنصة</span>
-            </div>
+    <main class="hero-section">
+        <div class="content">
+            <h1>تصميمات ذكية للمستقبل</h1>
+            <p>حلول تقنية متكاملة بلمسة فنية فريدة.</p>
+            <button class="cta-btn">ابدأ الآن</button>
         </div>
-    </div>
-
-    <script>
-        function toggleTheme() {
-            const body = document.body;
-            const currentTheme = body.getAttribute('data-theme');
-            body.setAttribute('data-theme', currentTheme === 'dark' ? 'light' : 'dark');
-        }
-    </script>
+    </main>
 </body>
 </html>

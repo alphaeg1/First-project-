@@ -3,139 +3,170 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alpha | الرئيسية</title>
+    <title>مطعم دبابة - المنيو الرسمي</title>
     <style>
         :root {
-            --bg-color: #0a0a0a;
-            --accent-color: #00d4ff; /* Neon Blue */
-            --secondary-accent: #9d00ff; /* Neon Purple */
-            --text-primary: #ffffff;
-            --text-secondary: #b0b0b0;
+            --primary: #ff6600; /* لون الدبابة - برتقالي قوي */
+            --bg: #0f0f0f;
+            --card-bg: #1a1a1a;
+            --text: #ffffff;
         }
 
         body {
             margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-primary);
-            line-height: 1.6;
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            scroll-behavior: smooth;
         }
 
-        /* Hero Header */
+        /* Header & Logo */
         header {
-            height: 60vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
             text-align: center;
-            background: linear-gradient(45deg, #0a0a0a 30%, #1a1a2e 100%);
-            border-bottom: 2px solid var(--accent-color);
-            box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
-        }
-
-        header h1 {
-            font-size: 4rem;
-            margin: 0;
-            text-transform: uppercase;
-            letter-spacing: 5px;
-            text-shadow: 0 0 10px var(--accent-color);
-        }
-
-        /* Container & Sections */
-        .container {
-            max-width: 1100px;
-            margin: auto;
             padding: 40px 20px;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://via.placeholder.com/1200x400'); /* حط صورة للمطعم هنا */
+            background-size: cover;
+            border-bottom: 3px solid var(--primary);
         }
 
-        .section {
-            margin-bottom: 60px;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+        .logo {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--primary);
+            text-shadow: 0 0 15px rgba(255,102,0,0.5);
         }
 
-        /* Social Icons */
-        .social-icons {
+        /* Navigation Menu */
+        nav {
+            position: sticky;
+            top: 0;
+            background: #000;
+            padding: 15px;
             display: flex;
             justify-content: center;
-            gap: 25px;
-            margin-top: 30px;
+            gap: 15px;
+            overflow-x: auto;
+            z-index: 1000;
+            border-bottom: 1px solid #333;
         }
 
-        .social-icons a {
-            color: var(--text-primary);
-            font-size: 24px;
+        nav a {
+            color: #fff;
             text-decoration: none;
-            transition: 0.3s;
-            padding: 10px;
-            border: 1px solid var(--accent-color);
-            border-radius: 50%;
+            white-space: nowrap;
+            padding: 8px 15px;
+            border-radius: 20px;
+            border: 1px solid var(--primary);
+            font-size: 0.9rem;
+        }
+
+        nav a:hover {
+            background: var(--primary);
+        }
+
+        /* Menu Sections */
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .section-title {
+            color: var(--primary);
+            border-right: 5px solid var(--primary);
+            padding-right: 15px;
+            margin: 40px 0 20px;
+        }
+
+        .menu-item {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 15px;
+            margin-bottom: 20px;
             display: flex;
             align-items: center;
-            justify-content: center;
-            width: 50px;
-            height: 50px;
+            gap: 15px;
+            transition: 0.3s;
         }
 
-        .social-icons a:hover {
-            background: var(--accent-color);
-            box-shadow: 0 0 15px var(--accent-color);
+        .menu-item:hover {
+            transform: scale(1.02);
+        }
+
+        .item-img {
+            width: 80px;
+            height: 80px;
+            background: #333;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        .item-info { flex: 1; }
+        .item-name { font-size: 1.2rem; font-weight: bold; margin-bottom: 5px; }
+        .item-desc { font-size: 0.8rem; color: #aaa; }
+        .price-tag { color: var(--primary); font-weight: bold; }
+
+        /* Footer & Contact */
+        footer {
+            background: #000;
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .contact-info { margin-bottom: 20px; }
+        .contact-btn {
+            display: inline-block;
+            background: var(--primary);
             color: #000;
+            padding: 10px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 5px;
         }
 
-        /* Responsive Map */
-        .map-container {
-            width: 100%;
-            height: 400px;
-            border-radius: 15px;
-            overflow: hidden;
-            border: 1px solid var(--secondary-accent);
-        }
-
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-            filter: grayscale(100%) invert(90%) contrast(90%);
-        }
-
-        /* Responsive Layout */
-        @media (max-width: 768px) {
-            header h1 { font-size: 2.5rem; }
-        }
+        .social-link { color: #1877F2; font-size: 1.5rem; text-decoration: none; }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>ALPHA</h1>
-        <p style="color: var(--accent-color);">Your Gateway to the Future</p>
-    </header>
+<header>
+    <div class="logo">دبابة - DABABA</div>
+    <p>أقوى طعم في مصر</p>
+</header>
 
-    <div class="container">
-        <div class="section">
-            <h2>عن الشركة</h2>
-            <p>نحن نقدم أحدث الحلول التقنية في مجال الـ NFC والتسويق الرقمي بلمسة عصرية وتصميمات مبتكرة.</p>
-        </div>
+<nav>
+    <a href="#shwarma">شاورما</a>
+    <a href="#burgers">برجر</a>
+    <a href="#meals">وجبات</a>
+    <a href="#drinks">مشروبات</a>
+</nav>
 
-        <div class="section">
-            <h2>موقعنا</h2>
-            <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3456.123456789!2d31.2357!3d30.0444!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzDCsDAyJzQwLjAiTiAzMcKwMTQnMDguNSJF!5e0!3m2!1sen!2seg!4v1620000000000!5m2!1sen!2seg"></iframe>
-            </div>
-        </div>
-
-        <div class="social-icons">
-            <a href="#" title="Facebook">FB</a>
-            <a href="#" title="Instagram">IG</a>
-            <a href="#" title="WhatsApp">WA</a>
-            <a href="#" title="LinkedIn">IN</a>
+<div class="container">
+    <h2 id="shwarma" class="section-title">قسم الشاورما</h2>
+    <div class="menu-item">
+        <img src="https://via.placeholder.com/80" class="item-img" alt="وجبة">
+        <div class="item-info">
+            <div class="item-name">صاروخ دبابة</div>
+            <div class="item-desc">شاورما لحم، طحينة، مخلل، عيش صاج</div>
+            <div class="price-tag">85 ج.م</div>
         </div>
     </div>
 
-</body>
-</html>
+    <h2 id="burgers" class="section-title">البرجر العملاق</h2>
+    <div class="menu-item">
+        <img src="https://via.placeholder.com/80" class="item-img" alt="وجبة">
+        <div class="item-info">
+            <div class="item-name">دبابة برجر (Double)</div>
+            <div class="item-desc">قطعتين لحم، جبنة شيدر، صوص خاص</div>
+            <div class="price-tag">120 ج.م</div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="contact-info">
+        <h3>تواصل معنا</h3>
+        <p>العنوان: القاهرة - فرع وسط البلد</p>
+        <a href="tel:0123456789" class="contact-btn">اتصل

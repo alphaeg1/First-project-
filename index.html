@@ -3,170 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مطعم دبابة - المنيو الرسمي</title>
-    <style>
-        :root {
-            --primary: #ff6600; /* لون الدبابة - برتقالي قوي */
-            --bg: #0f0f0f;
-            --card-bg: #1a1a1a;
-            --text: #ffffff;
-        }
-
-        body {
-            margin: 0;
-            font-family: 'Segoe UI', Tahoma, sans-serif;
-            background-color: var(--bg);
-            color: var(--text);
-            scroll-behavior: smooth;
-        }
-
-        /* Header & Logo */
-        header {
-            text-align: center;
-            padding: 40px 20px;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://via.placeholder.com/1200x400'); /* حط صورة للمطعم هنا */
-            background-size: cover;
-            border-bottom: 3px solid var(--primary);
-        }
-
-        .logo {
-            font-size: 3rem;
-            font-weight: bold;
-            color: var(--primary);
-            text-shadow: 0 0 15px rgba(255,102,0,0.5);
-        }
-
-        /* Navigation Menu */
-        nav {
-            position: sticky;
-            top: 0;
-            background: #000;
-            padding: 15px;
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            overflow-x: auto;
-            z-index: 1000;
-            border-bottom: 1px solid #333;
-        }
-
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            white-space: nowrap;
-            padding: 8px 15px;
-            border-radius: 20px;
-            border: 1px solid var(--primary);
-            font-size: 0.9rem;
-        }
-
-        nav a:hover {
-            background: var(--primary);
-        }
-
-        /* Menu Sections */
-        .container {
-            max-width: 800px;
-            margin: auto;
-            padding: 20px;
-        }
-
-        .section-title {
-            color: var(--primary);
-            border-right: 5px solid var(--primary);
-            padding-right: 15px;
-            margin: 40px 0 20px;
-        }
-
-        .menu-item {
-            background: var(--card-bg);
-            border-radius: 15px;
-            padding: 15px;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            transition: 0.3s;
-        }
-
-        .menu-item:hover {
-            transform: scale(1.02);
-        }
-
-        .item-img {
-            width: 80px;
-            height: 80px;
-            background: #333;
-            border-radius: 10px;
-            object-fit: cover;
-        }
-
-        .item-info { flex: 1; }
-        .item-name { font-size: 1.2rem; font-weight: bold; margin-bottom: 5px; }
-        .item-desc { font-size: 0.8rem; color: #aaa; }
-        .price-tag { color: var(--primary); font-weight: bold; }
-
-        /* Footer & Contact */
-        footer {
-            background: #000;
-            padding: 40px 20px;
-            text-align: center;
-            margin-top: 50px;
-        }
-
-        .contact-info { margin-bottom: 20px; }
-        .contact-btn {
-            display: inline-block;
-            background: var(--primary);
-            color: #000;
-            padding: 10px 25px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: bold;
-            margin: 5px;
-        }
-
-        .social-link { color: #1877F2; font-size: 1.5rem; text-decoration: none; }
-    </style>
+    <title>Ahmed Dashboard</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<header>
-    <div class="logo">دبابة - DABABA</div>
-    <p>أقوى طعم في مصر</p>
-</header>
-
-<nav>
-    <a href="#shwarma">شاورما</a>
-    <a href="#burgers">برجر</a>
-    <a href="#meals">وجبات</a>
-    <a href="#drinks">مشروبات</a>
-</nav>
-
-<div class="container">
-    <h2 id="shwarma" class="section-title">قسم الشاورما</h2>
-    <div class="menu-item">
-        <img src="https://via.placeholder.com/80" class="item-img" alt="وجبة">
-        <div class="item-info">
-            <div class="item-name">صاروخ دبابة</div>
-            <div class="item-desc">شاورما لحم، طحينة، مخلل، عيش صاج</div>
-            <div class="price-tag">85 ج.م</div>
+    <div class="countdown-bar">
+        <span>فاضل على حلمك: </span>
+        <div id="timer">
+            <span id="days">00</span> يوم : 
+            <span id="hours">00</span> ساعة : 
+            <span id="minutes">00</span> دقيقة : 
+            <span id="seconds">00</span> ثانية
         </div>
     </div>
 
-    <h2 id="burgers" class="section-title">البرجر العملاق</h2>
-    <div class="menu-item">
-        <img src="https://via.placeholder.com/80" class="item-img" alt="وجبة">
-        <div class="item-info">
-            <div class="item-name">دبابة برجر (Double)</div>
-            <div class="item-desc">قطعتين لحم، جبنة شيدر، صوص خاص</div>
-            <div class="price-tag">120 ج.م</div>
+    <nav class="top-nav">
+        <div class="user-info">
+            <div class="profile-pic">A</div>
+            <span>أهلاً، <strong>أحمد</strong></span>
+        </div>
+        <div class="logo">AHMED</div>
+    </nav>
+
+    <div class="container">
+        <div class="stats-grid">
+            <div class="card neon-purple">
+                <h3>0</h3>
+                <p>كورس مكتمل</p>
+            </div>
+            <div class="card neon-pink">
+                <h3>1</h3>
+                <p>كورس حالي</p>
+            </div>
+            <div class="card neon-blue">
+                <h3>0</h3>
+                <p>فيديوهات محفوظة</p>
+            </div>
+        </div>
+
+        <div class="course-section">
+            <h2>الكورسات اللي مشترك فيها</h2>
+            <div class="course-card">
+                <div class="course-img">
+                    <img src="https://via.placeholder.com/400x200" alt="Course">
+                </div>
+                <div class="course-details">
+                    <h3>كورس المراجعة النهائية (أحياء + جيولوجيا)</h3>
+                    <button class="entry-btn">الدخول للكورس</button>
+                </div>
+            </div>
         </div>
     </div>
-</div>
 
-<footer>
-    <div class="contact-info">
-        <h3>تواصل معنا</h3>
-        <p>العنوان: القاهرة - فرع وسط البلد</p>
-        <a href="tel:0123456789" class="contact-btn">اتصل
+    <script src="script.js"></script>
+</body>
+</html>

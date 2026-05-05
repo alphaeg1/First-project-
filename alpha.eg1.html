@@ -1,98 +1,201 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Team Alpha - دعاية وإعلان</title>
+    <title>Team Alpha | الملوك في الشارع</title>
     <style>
+        /* الأساسيات والتصميم المودرن */
+        :root {
+            --neon-blue: #00d4ff;
+            --main-bg: #0a0a0a;
+            --card-bg: rgba(255, 255, 255, 0.05);
+        }
+
         body {
-            font-family: sans-serif;
             margin: 0;
-            background-color: #000;
-            color: #fff;
-            background-image: url("street-advertising-patterns.png");
-            background-size: cover;
-            background-repeat: no-repeat;
+            padding: 0;
+            background-color: var(--main-bg);
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+            /* نقش خلفية بسيط يعبر عن عناصر الدعاية */
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(0, 212, 255, 0.05) 0%, transparent 20%),
+                linear-gradient(rgba(10, 10, 10, 0.9), rgba(10, 10, 10, 0.9)),
+                url('https://www.transparenttextures.com/patterns/stardust.png');
         }
 
-        header {
+        /* تأثير النقوش الجانبية (Dodge, Skate, Camera) */
+        .background-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.03;
+            pointer-events: none;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/1999/xlink" viewBox="0 0 100 100"><text y="20" font-size="10" fill="white">DODGE 🏎️ SKATE 🛹 CAMERA 📸 FLAGS 🚩</text></svg>');
+            background-size: 300px;
+        }
+
+        /* اللوجو فوق على الشمال */
+        .header {
+            padding: 20px 50px;
+            display: flex;
+            justify-content: flex-end; /* لأن الصفحة RTL */
+        }
+
+        .logo {
+            width: 120px;
+            height: auto;
+            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+            transition: 0.3s;
+        }
+
+        .logo:hover {
+            transform: scale(1.1);
+        }
+
+        /* القسم الرئيسي */
+        .hero {
+            height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            padding: 20px;
+            padding: 0 20px;
         }
 
-        header img {
-            width: 200px;
+        .hero h1 {
+            font-size: 4rem;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            background: linear-gradient(to right, #fff, var(--neon-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
         }
 
-        main {
-            padding: 20px;
+        .hero p {
+            font-size: 1.5rem;
+            max-width: 700px;
+            color: #bbb;
+            margin-top: 20px;
         }
 
-        h1 {
-            font-size: 2em;
+        /* قسم الخبرة والخدمات */
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 50px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .stat-card {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            transition: 0.4s;
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-card:hover {
+            border-color: var(--neon-blue);
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.1);
+        }
+
+        .stat-card h2 {
+            color: var(--neon-blue);
+            font-size: 2.5rem;
             margin-bottom: 10px;
         }
 
-        p {
-            font-size: 1.1em;
-            line-height: 1.5;
+        /* تواصل معنا */
+        .contact-info {
+            text-align: center;
+            padding: 80px 20px;
+            background: rgba(255, 255, 255, 0.02);
         }
 
-        #features {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .feature {
-            width: 300px;
-            margin: 10px;
-            padding: 20px;
-            background-color: #fff;
+        .phone-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 15px 40px;
+            background: #fff;
             color: #000;
-            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            transition: 0.3s;
+        }
+
+        .phone-btn:hover {
+            background: var(--neon-blue);
+            box-shadow: 0 0 20px var(--neon-blue);
+        }
+
+        .location-tag {
+            margin-top: 15px;
+            color: #888;
+            font-style: italic;
         }
 
         footer {
             text-align: center;
-            padding: 20px;
-            background-color: #333;
+            padding: 40px;
+            font-size: 0.9rem;
+            color: #444;
         }
     </style>
 </head>
 <body>
-    <header>
-        <img src="corrected-logo.png" alt="Team Alpha Logo">
-    </header>
 
-    <main>
-        <h1>Team Alpha: نحن هنا لنجعل إعلاناتك تتحدث بصوت عالٍ!</h1>
-        <p>نحن خبراء في الدعاية والإعلان بخبرة تزيد عن خمس سنوات، عملنا مع العديد من البراندات الكبيرة وحققنا نتائج رائعة. نحن نؤمن بأن الإعلانات الفعالة هي التي تترك أثراً دائماً، ولذلك نعمل بجد لنقدم لك أفضل الحلول الإعلانية التي تتناسب مع احتياجاتك وأهدافك.</p>
+    <div class="background-overlay"></div>
 
-        <section id="features">
-            <div class="feature">
-                <h3>خبرة خمس سنين</h3>
-                <p>لدينا فريق من الخبراء في مجال الدعاية والإعلان بخبرة تزيد عن خمس سنوات.</p>
-            </div>
+    <div class="header">
+        <img src="logo.jpg" alt="Team Alpha Logo" class="logo">
+    </div>
 
-            <div class="feature">
-                <h3>عملنا مع برندات كبيرة</h3>
-                <p>لقد عملنا مع العديد من البراندات الكبيرة في مصر وحققنا نتائج رائعة.</p>
-            </div>
+    <section class="hero">
+        <h1>TEAM ALPHA</h1>
+        <p>نحن لا نصنع مجرد دعاية، نحن نصنع السيطرة. خبرتنا في الشارع هي سلاحك السري للوصول لقمة السوق.</p>
+    </section>
 
-            <div class="feature">
-                <h3>آراء عملاء ممتازة</h3>
-                <p>لدينا العديد من آراء العملاء الممتازة التي تؤكد على جودة خدماتنا.</p>
-            </div>
-        </section>
+    <div class="stats-container">
+        <div class="stat-card">
+            <h2>+5</h2>
+            <p>سنوات من الخبرة في قلب الشارع</p>
+        </div>
+        <div class="stat-card">
+            <h2>برندات كبرى</h2>
+            <p>ثقة كبار الشركات في مصر كانت دائماً من نصيبنا</p>
+        </div>
+        <div class="stat-card">
+            <h2>آراء حقيقية</h2>
+            <p>تقييمات عملائنا على صفحاتنا تثبت أننا الأفضل</p>
+        </div>
+    </div>
 
-        <p>لا تتردد في الاتصال بنا للحصول على المزيد من المعلومات عن خدماتنا.</p>
-        <p>رقم الهاتف: 01150605708</p>
-        <p>نحن نعمل في الجيزة والقاهرة فقط حالياً.</p>
-    </main>
+    <section class="contact-info">
+        <h3>هل أنت مستعد للسيطرة؟</h3>
+        <p>تواصل مع فريق تيم ألفا الآن واحجز مكانك بين الكبار</p>
+        <a href="tel:01150605708" class="phone-btn">اتصل بنا: 01150605708</a>
+        <div class="location-tag">متاحون الآن في: القاهرة والجيزة فقط.</div>
+    </section>
 
     <footer>
-        <p>Copyright &copy; 2023 Team Alpha. All Rights Reserved.</p>
+        &copy; 2026 TEAM ALPHA - All Rights Reserved.
     </footer>
+
 </body>
 </html>

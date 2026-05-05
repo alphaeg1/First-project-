@@ -7,7 +7,7 @@
     <style>
         :root {
             --neon-blue: #00d4ff;
-            --main-bg: #0a0a0a;
+            --main-bg: #080808;
             --text-color: #e0e0e0;
         }
 
@@ -21,181 +21,194 @@
             overflow-x: hidden;
         }
 
-        /* التعديل: نقوش الخلفية (عربيات، كاميرات، سكيت) */
+        /* نقوش الخلفية الهادئة (عناصر الدعاية) */
         body::before {
             content: "";
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
             z-index: -1;
-            opacity: 0.04; /* هادية جداً مش متعبة للعين */
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Ctext y='20' font-size='12' fill='white'%3E🏎️ 📸 🛹 🚩%3C/text%3E%3Ctext x='50' y='70' font-size='12' fill='white'%3E🎥 🚗 🛹%3C/text%3E%3C/svg%3E");
-            background-size: 150px;
-        }
-
-        /* اللوجو فوق على الشمال - ثابت وظاهر */
-        .header {
-            padding: 20px;
-            display: flex;
-            justify-content: flex-start;
-        }
-
-        .logo-box {
-            width: 100px;
-            height: 100px;
-            border: 1px solid var(--neon-blue);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            background: #111;
-        }
-
-        .logo-box img {
-            width: 100%;
-            height: auto;
-            display: block;
+            opacity: 0.03; 
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 100 100'%3E%3Ctext y='20' font-size='10' fill='white'%3E🏎️ 📸 🛹 🚩%3C/text%3E%3Ctext x='30' y='70' font-size='10' fill='white'%3E🎥 🚗 🛹%3C/text%3E%3C/svg%3E");
+            background-size: 180px;
         }
 
         .hero {
             text-align: center;
-            padding: 60px 20px;
+            padding: 80px 20px 40px;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: clamp(3rem, 10vw, 5rem);
             margin: 0;
             color: #fff;
-            text-shadow: 0 0 10px var(--neon-blue);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            text-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
         }
 
         .slogan {
-            font-size: 1.4rem;
+            font-size: 1.6rem;
             color: var(--neon-blue);
-            margin-top: 5px;
+            margin-top: 10px;
             font-weight: bold;
+            display: block;
         }
 
         .hero p {
-            max-width: 700px;
-            margin: 20px auto;
-            font-size: 1.1rem;
-            line-height: 1.8;
+            max-width: 800px;
+            margin: 30px auto;
+            font-size: 1.25rem;
+            line-height: 1.7;
             color: #bbb;
         }
 
-        .services-grid {
+        /* توزيع الـ 4 خانات */
+        .main-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
-            padding: 40px;
-            max-width: 1200px;
+            padding: 20px 40px 60px;
+            max-width: 1300px;
             margin: auto;
         }
 
-        .service-card {
-            background: rgba(255, 255, 255, 0.03);
-            padding: 25px;
-            border-radius: 10px;
-            border-bottom: 3px solid var(--neon-blue);
+        .info-card {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 30px;
+            border-radius: 4px;
+            border-top: 2px solid var(--neon-blue);
             transition: 0.3s;
         }
 
-        .service-card h3 {
-            color: var(--neon-blue);
-            margin-bottom: 15px;
+        .info-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateY(-5px);
         }
 
-        .service-card ul {
+        .info-card h3 {
+            color: var(--neon-blue);
+            font-size: 1.5rem;
+            margin-top: 0;
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+            padding-bottom: 10px;
+        }
+
+        .info-card p, .info-card li {
+            font-size: 1rem;
+            color: #ccc;
+            line-height: 1.6;
+        }
+
+        .info-card ul {
             list-style: none;
             padding: 0;
-            font-size: 0.95rem;
         }
 
-        .service-card li {
-            margin-bottom: 8px;
+        .info-card ul li {
+            margin-bottom: 12px;
+            padding-right: 15px;
+            position: relative;
         }
 
-        /* التعديل: تصميم الرقم البسيط */
-        .contact-simple {
+        .info-card ul li::before {
+            content: "•";
+            color: var(--neon-blue);
+            position: absolute;
+            right: 0;
+            font-weight: bold;
+        }
+
+        /* تصميم الرقم البسيط والراقي */
+        .contact-footer {
             text-align: center;
-            padding: 40px 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            margin-top: 40px;
+            padding: 60px 20px;
+            background: rgba(0,0,0,0.3);
+            border-top: 1px solid rgba(255,255,255,0.05);
         }
 
-        .contact-simple p {
+        .contact-footer span {
+            display: block;
             font-size: 0.9rem;
-            color: #777;
-            margin-bottom: 10px;
+            color: #666;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
-        .phone-link {
-            font-size: 1.8rem;
+        .phone-number {
+            font-size: 2.2rem;
             color: #fff;
             text-decoration: none;
-            font-weight: bold;
-            letter-spacing: 1px;
+            font-weight: 800;
             transition: 0.3s;
+            font-family: monospace;
         }
 
-        .phone-link:hover {
+        .phone-number:hover {
             color: var(--neon-blue);
+            text-shadow: 0 0 10px var(--neon-blue);
         }
 
         footer {
             text-align: center;
             padding: 20px;
             font-size: 0.8rem;
-            color: #444;
+            color: #333;
         }
     </style>
 </head>
 <body>
 
-    <div class="header">
-        <div class="logo-box">
-            <img src="logo.jpg" alt="Logo" onerror="this.style.display='none'; this.parentNode.innerText='ALPHA';">
-        </div>
-    </div>
-
     <section class="hero">
         <h1>TEAM ALPHA</h1>
-        <div class="slogan">براند ألفا.. كيان مش مكان</div>
+        <span class="slogan">براند ألفا.. كيان مش مكان</span>
         <p>
-            خبرتنا مع البراندات الكبيرة خلتنا مش مجرد مستجدين، إحنا فريق عارف إزاي يسيطر ويقدم نتائج حقيقية.
+            تيم ألفا مش مجرد براند دعاية مستجد، إحنا فريق حفر اسمه في السوق من خلال العمل مع كبرى البراندات. 
+            خبرتنا الطويلة هي ضمانك للسيطرة على السوق وتنفيذ الأفكار اللي بتسمّع في الشارع.
         </p>
     </section>
 
-    <div class="services-grid">
-        <div class="service-card">
+    <div class="main-grid">
+        <div class="info-card">
             <h3>من نحن</h3>
-            <p>خبرة 5 سنوات في السوق المصري، اشتغلنا مع براندات كبرى وقدمنا آراء حقيقية تقدر تشوفها على صفحاتنا.</p>
+            <p>خمس سنوات من الإبداع والخبرة الميدانية المتواصلة في قلب القاهرة والجيزة. لسنا مجرد براند دعايه، نحن كيان متكامل يخدم علامتك التجارية.</p>
         </div>
-        <div class="service-card">
-            <h3>خدمات الدعاية</h3>
+
+        <div class="info-card">
+            <h3>لماذا تختارنا؟</h3>
+            <p>لأننا نملك آراء حقيقية من عملائنا تثبت جودة عملنا، ولأن تاريخنا مع البراندات الكبرى يجعلنا الخيار الأول والآمن لنمو بيزنس الخاص بك.</p>
+        </div>
+
+        <div class="info-card">
+            <h3>الدعاية الميدانية</h3>
             <ul>
-                <li>• دعاية بالدودج والسكيت.</li>
-                <li>• تصوير احترافي ومونتاج.</li>
-                <li>• أعلام وتنظيم فعاليات.</li>
+                <li>دعاية وعروض بعربات الدودج (Dodge).</li>
+                <li>فريق سكاترز (Skaters) محترف.</li>
+                <li>توفير وتجهيز الأعلام الدعائية.</li>
+                <li>تصوير فوتوغرافي ومونتاج فيديو سينمائي.</li>
+                <li>تغطية شاملة لأي فعالية تخص الدعاية.</li>
             </ul>
         </div>
-        <div class="service-card">
-            <h3>الخدمات الرقمية</h3>
+
+        <div class="info-card">
+            <h3>الحلول الذكية</h3>
             <ul>
-                <li>• ديجيتال كارد NFC بالويب سايت الخاص بها.</li>
-                <li>• تصميم وبرمجة بورتفوليو ويب سايت.</li>
-                <li>• تصميمات جرافيك متكاملة.</li>
+                <li>توفير الـ Digital Card NFC بالويب سايت الخاص بها.</li>
+                <li>تصميم وبرمجة ويب سايت بورتفوليو.</li>
+                <li>خدمات التصميم الجرافيكي الاحترافي.</li>
+                <li>تنفيذ أي فكرة دعائية تخص علامتك التجارية.</li>
             </ul>
         </div>
     </div>
 
-    <div class="contact-simple">
-        <p>للتواصل المباشر</p>
-        <a href="tel:01150605708" class="phone-link">01150605708</a>
+    <div class="contact-footer">
+        <span>تواصل معنا الآن</span>
+        <a href="tel:01150605708" class="phone-number">01150605708</a>
     </div>
 
     <footer>
-        &copy; 2020 TEAM ALPHA - CAIRO / GIZA
+        &copy; 2020 TEAM ALPHA - EXCELLENCE IN ADVERTISING
     </footer>
 
 </body>

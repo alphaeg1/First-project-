@@ -7,9 +7,9 @@
     <style>
         :root {
             --neon-blue: #00d4ff;
-            --main-bg: #050505;
-            --card-bg: rgba(255, 255, 255, 0.03);
-            --text-gray: #b0b0b0;
+            --main-bg: #080808;
+            --card-bg: rgba(20, 20, 20, 0.8);
+            --text-gray: #ccc;
         }
 
         body {
@@ -17,212 +17,202 @@
             padding: 0;
             background-color: var(--main-bg);
             color: #ffffff;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            overflow-x: hidden;
-            /* نقش الشارع والدعاية خفيف جداً في الخلفية */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            /* التعديل الثالث: خلفية بنقوش هادئة غير متعِبة للعين */
             background-image: 
-                linear-gradient(rgba(5, 5, 5, 0.8), rgba(5, 5, 5, 0.8)),
-                url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
+                radial-gradient(circle at 50% 50%, rgba(0, 212, 255, 0.02) 0%, transparent 50%),
+                url('https://www.transparenttextures.com/patterns/asfalt-dark.png'); /* نقش هادئ يكسر السواد */
         }
 
-        /* اللوجو ثابت فوق على الشمال */
-        .top-nav {
-            padding: 30px;
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: 100;
-        }
-
-        .logo-img {
-            width: 140px;
-            height: auto;
-            display: block; /* يظهر مباشرة */
-            border-bottom: 2px solid var(--neon-blue);
-            padding-bottom: 5px;
-        }
-
-        /* القسم الرئيسي */
-        .hero {
-            height: 80vh;
+        /* التعديل الأول: اللوجو ثابت وظاهر فوراً */
+        .header-nav {
+            padding: 20px 40px;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            justify-content: flex-start;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
+        }
+
+        .logo-container {
+            width: 120px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 5px;
+            background: rgba(255,255,255,0.02);
+        }
+
+        .logo-container img {
+            width: 100%;
+            display: block; /* يضمن الظهور الفوري */
+        }
+
+        .hero {
             text-align: center;
-            padding: 0 20px;
-            margin-top: 50px;
+            padding: 100px 20px 60px;
         }
 
         .hero h1 {
-            font-size: clamp(3rem, 10vw, 5rem);
+            font-size: 4.5rem;
             margin: 0;
-            background: linear-gradient(to bottom, #fff 50%, var(--neon-blue));
+            letter-spacing: 3px;
+            background: linear-gradient(45deg, #fff, var(--neon-blue));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 0 15px rgba(0, 212, 255, 0.3));
         }
 
         .slogan {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             color: var(--neon-blue);
             margin-top: 10px;
-            font-weight: bold;
-            letter-spacing: 2px;
-            text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+            font-weight: 600;
         }
 
         .hero p {
-            font-size: 1.3rem;
-            max-width: 800px;
+            max-width: 700px;
+            margin: 30px auto;
+            font-size: 1.2rem;
             color: var(--text-gray);
-            margin-top: 25px;
-            line-height: 1.6;
         }
 
-        /* شبكة المعلومات والخدمات */
-        .features-grid {
+        .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            padding: 50px;
-            max-width: 1300px;
+            gap: 20px;
+            padding: 40px;
+            max-width: 1200px;
             margin: auto;
         }
 
-        .info-box {
+        .card {
             background: var(--card-bg);
-            padding: 35px;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
+            padding: 30px;
+            border-radius: 2px; /* تصميم حاد ومودرن */
+            border-right: 4px solid var(--neon-blue);
+            transition: 0.3s;
         }
 
-        .info-box:hover {
-            border-color: var(--neon-blue);
-            background: rgba(0, 212, 255, 0.02);
-            transform: translateY(-5px);
+        .card:hover {
+            background: rgba(30, 30, 30, 0.9);
+            transform: scale(1.02);
         }
 
-        .info-box h3 {
+        .card h3 {
+            margin-top: 0;
             color: var(--neon-blue);
-            font-size: 1.8rem;
-            margin-bottom: 15px;
         }
 
-        .info-box ul {
+        .card ul {
             list-style: none;
             padding: 0;
-            text-align: right;
-            color: var(--text-gray);
         }
 
-        .info-box ul li {
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
+        .card li {
+            margin-bottom: 10px;
+            font-size: 0.95rem;
         }
 
-        .info-box ul li::before {
-            content: "⚡";
-            margin-left: 10px;
-            font-size: 0.8rem;
-        }
-
-        /* قسم التواصل */
-        .cta-section {
-            text-align: center;
-            padding: 100px 20px;
-            background: linear-gradient(to bottom, transparent, #0a0a0a);
-        }
-
-        .call-now {
-            display: inline-block;
-            padding: 20px 50px;
-            background: transparent;
-            color: #fff;
-            border: 2px solid var(--neon-blue);
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 5px;
-            font-size: 1.5rem;
-            transition: 0.3s;
-            box-shadow: 0 0 15px rgba(0, 212, 255, 0.2);
-        }
-
-        .call-now:hover {
-            background: var(--neon-blue);
+        /* التعديل الرابع: ديزاين مودرن لعرض الرقم */
+        .contact-box {
+            margin: 60px auto;
+            max-width: 500px;
+            background: #fff;
             color: #000;
-            box-shadow: 0 0 30px var(--neon-blue);
+            padding: 2px; /* برواز خارجي */
+            position: relative;
         }
 
-        .area-tag {
-            margin-top: 20px;
-            font-size: 1.1rem;
+        .contact-content {
+            background: #000;
+            color: #fff;
+            padding: 30px;
+            border: 1px solid #333;
+            text-align: center;
+        }
+
+        .contact-content h4 {
+            margin: 0 0 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.8rem;
+            color: var(--neon-blue);
+        }
+
+        .phone-number {
+            font-size: 2.2rem;
+            font-weight: 800;
+            display: block;
+            margin-bottom: 15px;
+            text-decoration: none;
+            color: #fff;
+            font-family: 'Courier New', Courier, monospace; /* شكل تقني */
+        }
+
+        .phone-number:hover {
+            color: var(--neon-blue);
+        }
+
+        .tagline {
+            font-size: 0.9rem;
             color: #666;
         }
 
         footer {
             text-align: center;
-            padding: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            font-size: 0.8rem;
             color: #333;
+            border-top: 1px solid rgba(255,255,255,0.05);
         }
     </style>
 </head>
 <body>
 
-    <nav class="top-nav">
-        <img src="logo.jpg" alt="Team Alpha" class="logo-img">
-    </nav>
+    <div class="header-nav">
+        <div class="logo-container">
+            <img src="logo.jpg" alt="Alpha Logo">
+        </div>
+    </div>
 
     <section class="hero">
         <h1>TEAM ALPHA</h1>
         <div class="slogan">براند ألفا.. كيان مش مكان</div>
-        <p>
-            تيم ألفا مش مجرد براند دعاية مستجد، إحنا فريق اشتغل وحفر اسمه في السوق مع كبرى البراندات. 
-            خبرتنا الطويلة خلتنا نفهم إزاي نسيطر على الشارع ونخلي اسمك هو اللي مسمّع.
-        </p>
+        <p>إحنا مش مجرد شركة دعاية، إحنا شركاء في السيطرة على السوق. خبرتنا مع كبرى البراندات خلتنا رقم واحد في تنفيذ الأفكار اللي بتسمّع في الشارع.</p>
     </section>
 
-    <div class="features-grid">
-        <div class="info-box">
+    <div class="grid">
+        <div class="card">
             <h3>خبرة 5 سنوات</h3>
-            <p>خمس سنين من التواجد الفعلي والتطوير المستمر في مجال الدعاية والإعلان الاحترافي.</p>
+            <p>خمس سنوات من الإبداع والعمل الميداني المتواصل في قلب القاهرة والجيزة.</p>
         </div>
-
-        <div class="info-box">
-            <h3>شركاء النجاح</h3>
-            <p>تاريخنا بيتكلم عننا.. اشتغلنا مع براندات كتير وكبيرة، وقدرنا نكون جزء من نجاحهم في السوق المصري.</p>
-        </div>
-
-        <div class="info-box">
+        <div class="card">
             <h3>آراء حقيقية</h3>
-            <p>ثقة عملائنا هي رأس مالنا، تقدر تشوف آراء وتقييمات العملاء اللي اتعاملوا معانا على صفحاتنا الرسمية.</p>
+            <p>نتائجنا موجودة على أرض الواقع، وآراء عملائنا على صفحاتنا هي أكبر دليل على جودة شغلنا.</p>
         </div>
-
-        <div class="info-box">
-            <h3>خدماتنا المتكاملة</h3>
+        <div class="card">
+            <h3>شركاء النجاح</h3>
+            <p>تعاملنا مع براندات ضخمة، ومازلنا بنقدم نفس القوة والالتزام لكل عميل جديد.</p>
+        </div>
+        <div class="card">
+            <h3>خدماتنا</h3>
             <ul>
-                <li>دعاية ميدانية (عربيات Dodge، سكاترز، أعلام).</li>
-                <li>برمجة ويب سايت وبورتفوليو احترافي.</li>
-                <li>حلول الـ NFC (Digital Cards).</li>
-                <li>تصوير فوتوغرافي ومونتاج فيديو سينمائي.</li>
-                <li>تصميمات جرافيك (Visual Identity).</li>
+                <li>• توفير الـ Digital Card NFC بالويب سايت الخاص بها.</li>
+                <li>• دعاية الشوارع (Dodge, Skate, Flags).</li>
+                <li>• بناء الويب سايت والبورتفوليو الاحترافي.</li>
+                <li>• تصوير ومونتاج وإنتاج محتوى بصري.</li>
+                <li>• تنفيذ كافة أنواع التصميمات الإعلانية.</li>
             </ul>
         </div>
     </div>
 
-    <section class="cta-section">
-        <h3>جاهز تنقل البراند بتاعك لمستوى تاني؟</h3>
-        <a href="tel:01150605708" class="call-now">كلمنا: 01150605708</a>
-        <p class="area-tag">نغطي حالياً: القاهرة والجيزة فقط.</p>
-    </section>
+    <div class="contact-box">
+        <div class="contact-content">
+            <h4>Direct Line</h4>
+            <a href="tel:01150605708" class="phone-number">01150605708</a>
+            <p class="tagline">نعمل في القاهرة والجيزة فقط حالياً</p>
+        </div>
+    </div>
 
     <footer>
-        &copy; 2026 TEAM ALPHA - EXPERIENCE & POWER
+        &copy; 2026 TEAM ALPHA. PRE-ORDER YOUR SUCCESS.
     </footer>
 
 </body>
